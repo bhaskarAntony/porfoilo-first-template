@@ -15,6 +15,73 @@
     box-sizing: border-box;
     font-family: var(--body-font-family);
 }
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+.nav, .nav ul{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+}
+.nav ul li{
+    font-size: 0.7rem;
+    position: relative;
+    cursor: pointer;
+
+}
+.nav ul li::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary-color);
+    opacity: 0;
+    bottom: -5px;
+    left: 0;
+}
+.nav ul li:hover::before{
+    opacity: 1;
+    transition: 0.8s;
+}
+.nav ul li:hover{
+    color: var(--secondary-color);
+}
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.contact i{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: #fff;
+    color: #000;
+}
+.contact button{
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: transparent;
+    border-radius: 100px;  
+}
+.contact button:hover{
+    background-color: #fff;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: 0.8s;
+}
+
 
 .hero{
     background-color: var(--secondary-color);
@@ -22,7 +89,11 @@
     position: relative;
     background: url('./hero-wave.svg') no-repeat center;
     background-size: cover;
+    padding: 20px 10%;
 
+}
+.hero-content{
+    min-height: 90vh;
 }
 .hero svg{
     position: absolute;
@@ -33,7 +104,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    padding-left: 10%;
 }
 .hero-image{
     position: relative;
@@ -497,6 +567,7 @@
     padding: 15px;
     border: 1px solid rgb(219, 219, 219);
     border-radius: 3px;
+    width: 100%;
  }
  .footer textarea{
     padding: 15px;
@@ -542,12 +613,20 @@
 
 
   @media (max-width:1000px){
-    .hero{
+    .hero-content{
         flex-direction: column;
     }
     .text-1{
         font-size: 2rem;
     }
+}
+@media (max-width:900px){
+    nav, .nav{
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+    }
+    /* .nav{} */
 }
 @media (max-width:768px){
     .hero{
@@ -599,15 +678,25 @@
     }
     .footer{
         flex-direction: column;
+        width: 100%;
     }
     .footer-left-content{
         flex-direction: column;
+        width: 100%;
     }
     .footer-left-content-1{
         border: none;
         border-bottom: 1px solid rgb(192, 192, 192);
         margin-bottom: 10px;
     }
+    .name{
+        width: 100%;
+    }
+    .name input{
+        width: 100% !important;
+    }
+    
+    
 }
 @media (max-width:600px){
     .hero{
@@ -639,7 +728,24 @@
     .name{
         flex-direction: column;
     }
+    .footer-right-icons{
+        flex-direction: column;
+    }
+    .hero-image{
+        overflow: hidden;
+    }
+    .hero-image img{
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
 
+}
+@media (max-width:400px){
+    .nav ul{
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 @media (max-width:368px){
     .hero{
